@@ -8,7 +8,6 @@ class UserForm extends Component {
   render() {
     return (
       <React.Fragment>
-        <h1>Login</h1>
         <input type="text" value={this.state.username} placeholder="username" aria-label="username" />
         <input type="password" password={this.state.password} placeholder="password" aria-label="password" />
       </React.Fragment>
