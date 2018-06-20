@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 
-import LoginForm from '../components/LoginForm';
+import UserForm from '../components/UserForm';
 
-storiesOf('LoginForm', module)
-  .add('empty', () => <LoginForm/>)
+storiesOf('UserForm', module)
+  .add('empty', () => <UserForm/>)
