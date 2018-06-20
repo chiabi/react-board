@@ -8,4 +8,3 @@ import UserForm from '../components/UserForm';
 
 storiesOf('UserForm', module)
   .add('empty', () => <UserForm />)
-  .add('onChange', () => <UserForm onChangeUsername={e => e.target.value} onChangePassword={e => e.target.value}/>)
