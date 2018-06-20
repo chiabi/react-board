@@ -5,19 +5,21 @@ class UserForm extends Component {
   static defaultProps = {
     username: '', // user name 입력
     password: '',  // user password 입력
-    onChangeInput: () => {} // 인풋 값 변경되면 실행되는 함수 
+    onChangeUsername: () => {}, // 유저 값 변경되면 실행되는 함수 
+    onChangePassword: () => {} // 패스워드 값 변경되면 실행되는 함수 
   }
 
   render() {
     const {
       username,
       password,
-      onChangeInput
+      onChangeUsername,
+      onChangePassword
     } = this.props;
     return (
       <React.Fragment>
-        <input type="text" value={username} onChange={onChangeInput} placeholder="username" aria-label="username" />
-        <input type="password" password={password} onChange={onChangeInput} placeholder="password" aria-label="password" />
+        <input type="text" value={username} onChange={onChangeUsername} placeholder="username" aria-label="username" />
+        <input type="password" value={password} onChange={onChangePassword} placeholder="password" aria-label="password" />
       </React.Fragment>
     );
   }

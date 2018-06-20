@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 
-import UserForm from '../components/UserForm';
-import UserFormButton from '../components/UserFormButton';
+import LoginFormContainer from '../containers/LoginFormContainer';
+import LoginFormButtonContainer from '../containers/LoginFormButtonContainer';
 
 class LoginPage extends Component {
   render() {
     return (
       <div>
         <h1>Login</h1>
-        <UserForm />
-        <UserFormButton />
+        <LoginFormContainer />
+        <LoginFormButtonContainer />
       </div>
     );
   }
