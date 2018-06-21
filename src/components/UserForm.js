@@ -1,26 +1,42 @@
 import React, { Component } from 'react';
 
 class UserForm extends Component {
-
   static defaultProps = {
-    username: '', // user name 입력
-    password: '',  // user password 입력
-    onChangeUsername: () => {}, // 유저 값 변경되면 실행되는 함수 
-    onChangePassword: () => {} // 패스워드 값 변경되면 실행되는 함수 
+    onSubmitUser: () => {}, // 전송시 이벤트
+    buttonText: '', // 전송 버튼에 들어갈 텍스트
+  }
+  
+  state = {
+    username: '',
+    password: ''
+  }
+
+  handleUsernameChange = e => {
+    this.setState({
+      username: e.target.value
+    })
+  }
+
+  handlePasswordChange = e => {
+    this.setState({
+      password: e.target.value
+    })
+  }
+
+  handleSubmit = e => {
+    e.preventDefault()
+    this.props.onSubmitUser(this.state.username, this.state.password);
   }
 
   render() {
-    const {
-      username,
-      password,
-      onChangeUsername,
-      onChangePassword
-    } = this.props;
+    const { username, password } = this.state;
+    const { buttonText } = this.props;
     return (
-      <React.Fragment>
-        <input type="text" value={username} onChange={onChangeUsername} placeholder="username" aria-label="username" />
-        <input type="password" value={password} onChange={onChangePassword} placeholder="password" aria-label="password" />
-      </React.Fragment>
+      <form onSubmit={this.handleSubmit}>
+        <input type="text" value={username} onChange={this.handleUsernameChange} placeholder="username" aria-label="username" />
+        <input type="password" value={password} onChange={this.handlePasswordChange} placeholder="password" aria-label="password" />
+        <button type="submit">{buttonText}</button>
+      </form>
     );
   }
 }

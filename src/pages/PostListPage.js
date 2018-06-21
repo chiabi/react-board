@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 
 import { PostListProvider } from '../contexts/PostListContext';
 import BoardListContainer from '../containers/BoardListContainer'
+import withAuth from '../hocs/withAuth';
 
-export default () => (
+const PostListPage = () => (
   <PostListProvider>
     <div>
       <h1>게시글 목록</h1>
@@ -13,3 +14,5 @@ export default () => (
     </div>
   </PostListProvider>
 )
+
+export default withAuth('/login')(PostListPage);

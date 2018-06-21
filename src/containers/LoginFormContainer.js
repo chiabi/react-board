@@ -1,27 +1,30 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 
 import { UserConsumer } from '../contexts/UserContext'
 import UserForm from '../components/UserForm'
 
 class LoginFormContainer extends Component {
+  state = {
+    success: false
+  }
   render() {
-    return (
-      <UserConsumer>
-        {({
-          username,
-          password,
-          changeUsername,
-          changePassword
-        }) => (
-          <UserForm 
-            username={username} 
-            password={password} 
-            onChangeUsername={changeUsername}
-            onChangePassword={changePassword}
-          />
-        )}
-      </UserConsumer>
-    );
+    if (this.state.success) {
+      return (
+        <Redirect to='/post'/>
+      )
+    } else {
+      return (
+        <UserConsumer>
+          {({login}) => (
+            <UserForm onSubmitUser={async (username, password) => {
+              await login(username, password);
+              this.setState({success: true});
+            }} buttonText={'Login'}/>
+          )}
+        </UserConsumer>
+      );
+    }
   }
 }
 

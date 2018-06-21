@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 
 import { UserProvider } from './contexts/UserContext'
 import LoginPage from './pages/LoginPage'
@@ -15,9 +15,10 @@ class App extends Component {
           <div className="App">
             <Switch>
               <Route path="/login" component={LoginPage}/>
-              <Route exact path="/" component={PostListPage}/>
+              <Route exact path="/post" component={PostListPage}/>
               <Route path="/new" component={PostWritePage} />
-              <Route path="/:postId" component={PostViewPage} />
+              <Route path="/post:postId" component={PostViewPage} />
+              <Route exact path='/' component={Home} /> 
             </Switch>
           </div>
         </UserProvider>
@@ -26,4 +27,9 @@ class App extends Component {
   }
 }
 
+const Home = () => (
+  localStorage.getItem('token') ? 
+    <Redirect to="/post"/> :
+    <Redirect to="/login"/>
+)
 export default App;

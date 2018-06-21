@@ -8,3 +8,5 @@ import UserForm from '../components/UserForm';
 
 storiesOf('UserForm', module)
   .add('empty', () => <UserForm />)
+  .add('log in', () => <UserForm buttonText={'log in'}/>)
+  .add('sign up', () => <UserForm buttonText={'sign up'}/>)
