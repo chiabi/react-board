@@ -3,22 +3,19 @@ import { Link } from 'react-router-dom';
 
 class BoardList extends Component {
   static defaultProps = {
-    post: {
-      title: '',      
-      user: {
-        username: ''
-      }
-    }
+    id: '',
+    title: '',
+    author: ''
   }
 
   render() {
-    const {post} = this.props
-    const path = `/post/${post.id}`;
+    const { id, title, author } = this.props
+    const path = `/post/${id}`;
     return (
-      <li key={post.id}>
+      <li>
         <Link to={path}>
-          <div>{post.title}</div>
-          <div>{post.user.username}</div>
+          <div>{title}</div>
+          <div>{author}</div>
         </Link>
       </li>
     );

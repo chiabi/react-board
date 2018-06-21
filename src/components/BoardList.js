@@ -12,7 +12,7 @@ class BoardList extends Component {
     return (
       <ul className="board-list">
         {posts.map((post) => (
-          <BoardListItem key={post.id} post={post}/>
+          <BoardListItem key={post.id} {...post}/>
         ))}
       </ul>
     );

@@ -5,23 +5,32 @@ import boardAPI from '../boardAPI';
 const { Provider, Consumer } = createContext();
 class PostProvider extends Component {
   state = {
-    posts: []
+    post: {}
   }
 
   async componentDidMount() {
-    this.fetchPosts()
+    await this.fetchPosts()
   }
 
   fetchPosts = async () => {
-    const res = await boardAPI.get('/posts?_expand=user');
-    this.setState({
-      posts: res.data
-    })
+    try {
+      const {id} = this.props;
+      const res = await boardAPI.get(`/posts/${id}?_expand=user`);
+      const post = {
+        id: res.data.id,
+        title: res.data.title,
+        body: res.data.body,
+        author: res.data.user.username
+      }
+      this.setState({post});
+    } catch(e) {
+
+    }
   }
 
   render() {
     const value = {
-      posts: this.state.posts
+      post: this.state.post
     }
     return (
       <Provider value={value}>

@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 
-import { PostConsumer } from '../contexts/PostContext';
+import { PostListConsumer } from '../contexts/PostListContext';
 import BoardList from '../components/BoardList';
 
 class BoardListContainer extends Component {
   render() {
     return (
-      <PostConsumer>
+      <PostListConsumer>
         {({posts}) => (
           <BoardList posts={posts}/>
         )}
-      </PostConsumer>
+      </PostListConsumer>
     );
   }
 }
