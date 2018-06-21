@@ -1,21 +1,37 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
+
+import { UserProvider } from './contexts/UserContext'
+import LoginPage from './pages/LoginPage'
+import PostListPage from './pages/PostListPage'
+import PostViewPage from './pages/PostViewPage'
+import PostWritePage from './pages/PostWritePage'
+import Error404 from './pages/Error404'
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <BrowserRouter>
+        <UserProvider>
+          <div className="App">
+            <Switch>
+              <Route path="/login" component={LoginPage}/>
+              <Route exact path="/post" component={PostListPage}/>
+              <Route exact path="/post/write" component={PostWritePage} />
+              <Route path="/post/:postId" component={PostViewPage} />
+              <Route exact path='/' component={Home} />
+              <Route component={Error404}/> 
+            </Switch>
+          </div>
+        </UserProvider>
+      </BrowserRouter>
     );
   }
 }
 
+const Home = () => (
+  localStorage.getItem('token') ? 
+    <Redirect to="/post"/> :
+    <Redirect to="/login"/>
+)
 export default App;
