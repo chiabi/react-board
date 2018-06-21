@@ -17,4 +17,4 @@ const post = {
 }
 
 storiesOf('BoardView', module)
-  .add('fullfilled', () => <BoardView post={post} />)
+  .add('fulfilled', () => <BoardView post={post} />)

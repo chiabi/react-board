@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import { UserProvider } from './contexts/UserContext'
 import { PostProvider } from './contexts/PostContext'
@@ -14,9 +14,11 @@ class App extends Component {
         <PostProvider>
           <UserProvider>
             <div className="App">
-              <Route path="/login" component={LoginPage}/>
-              <Route exact path="/board" component={BoardListPage}/>
-              <Route path="/board/view/:postId" component={({match}) => <BoardViewPage id={match.params.postId}/>} />
+              <Switch>
+                <Route path="/login" component={LoginPage}/>
+                <Route exact path="/" component={BoardListPage}/>
+                <Route path="/post/:postId" component={({match}) => <BoardViewPage id={match.params.postId}/>} />
+              </Switch>
             </div>
           </UserProvider>
         </PostProvider>

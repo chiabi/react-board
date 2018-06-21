@@ -5,7 +5,10 @@ import BoardListContainer from '../containers/BoardListContainer'
 class BoardListPage extends Component {
   render() {
     return (
-      <BoardListContainer />
+      <div>
+        <h1>게시글 목록</h1>
+        <BoardListContainer />
+      </div>
     );
   }
 }
