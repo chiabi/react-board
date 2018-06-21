@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 
 import { Redirect } from 'react-router-dom';
 
-const withAuth = (redirectPath) => (WrappedComponent) => (
+const withAuth = (redirectPath, auth = true) => (WrappedComponent) => (
   class extends Component {
     render() {
+      const predicate = auth && localStorage.getItem('token')
       return (
-        localStorage.getItem('token') ?
+        predicate ?
           <WrappedComponent {...this.props}/> : 
           <Redirect to={redirectPath}/>
       )

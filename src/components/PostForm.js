@@ -3,25 +3,29 @@ import { Link } from 'react-router-dom';
 
 class PostForm extends Component {
   static defaultProps = {
-    onSubmit: () => {}
+    onSubmitPost: () => {}
   }
 
   state = {
     newTitle: '',
     newBody: '',
   }
+  
   handleTitleChange = e => {
     this.setState({newTitle: e.target.value});
   }
   handleBodyChange = e => {
     this.setState({newBody: e.target.value});
   }
+  handleSubmit = e => {
+    e.preventDefault();
+    this.props.onSubmitPost(this.state.newTitle, this.state.newBody)
+  }
 
   render() {
-    const { onSubmit } = this.props;
     const { newTitle, newBody } = this.state;
     return (
-      <form onSubmit={onSubmit}>
+      <form onSubmit={this.handleSubmit}>
         <div>
           <label htmlFor="title">타이틀: </label>
           <input name="title" type="text" 

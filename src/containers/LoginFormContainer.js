@@ -9,7 +9,7 @@ class LoginFormContainer extends Component {
     success: false
   }
   render() {
-    if (this.state.success) {
+    if (this.state.success || localStorage.getItem('token')) {
       return (
         <Redirect to='/post'/>
       )

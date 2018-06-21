@@ -6,6 +6,7 @@ import LoginPage from './pages/LoginPage'
 import PostListPage from './pages/PostListPage'
 import PostViewPage from './pages/PostViewPage'
 import PostWritePage from './pages/PostWritePage'
+import Error404 from './pages/Error404'
 
 class App extends Component {
   render() {
@@ -18,7 +19,8 @@ class App extends Component {
               <Route exact path="/post" component={PostListPage}/>
               <Route exact path="/post/write" component={PostWritePage} />
               <Route path="/post/:postId" component={PostViewPage} />
-              <Route exact path='/' component={Home} /> 
+              <Route exact path='/' component={Home} />
+              <Route component={Error404}/> 
             </Switch>
           </div>
         </UserProvider>

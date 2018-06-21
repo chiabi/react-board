@@ -24,7 +24,7 @@ class PostProvider extends Component {
       }
       this.setState({post});
     } catch(e) {
-
+      alert(`${e.response.status}: 게시글을 불러오는데 실패했습니다.`)
     }
   }
 

@@ -33,8 +33,8 @@ class UserForm extends Component {
     const { buttonText } = this.props;
     return (
       <form onSubmit={this.handleSubmit}>
-        <input type="text" value={username} onChange={this.handleUsernameChange} placeholder="username" aria-label="username" />
-        <input type="password" value={password} onChange={this.handlePasswordChange} placeholder="password" aria-label="password" />
+        <input type="text" value={username} onChange={this.handleUsernameChange} placeholder="username" aria-label="username" required={true}/>
+        <input type="password" value={password} onChange={this.handlePasswordChange} placeholder="password" aria-label="password" required={true}/>
         <button type="submit">{buttonText}</button>
       </form>
     );

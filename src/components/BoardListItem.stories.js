@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { MemoryRouter } from 'react-router-dom';
 
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
@@ -15,7 +15,7 @@ const post = {
 }
 storiesOf('BoardListItem', module)
   .addDecorator(story => (
-    <BrowserRouter initialEntries={['/']}>{story()}</BrowserRouter>
+    <MemoryRouter initialEntries={['/']}>{story()}</MemoryRouter>
   ))
   .add('empty', () => (
     <BoardListItem/>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 
-import { PostConsumer } from '../contexts/PostContext'
+import { PostListConsumer } from '../contexts/PostListContext'
 import PostForm from '../components/PostForm'
 
 class PostWriteFormContainer extends Component {
@@ -15,11 +15,14 @@ class PostWriteFormContainer extends Component {
       )
     } else {
       return (
-        <PostConsumer>
-          {() => (
-            <PostForm/>
+        <PostListConsumer>
+          {({addNewPost}) => (
+            <PostForm onSubmitPost={async (title, body) => {
+              await addNewPost(title, body);
+              this.setState({success: true})
+            }}/>
           )}
-        </PostConsumer>
+        </PostListConsumer>
       );
     }
   }
