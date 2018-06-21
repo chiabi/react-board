@@ -1,16 +1,21 @@
 import React, { Component } from 'react';
 
 import { UserProvider } from './contexts/UserContext'
+import { PostProvider } from './contexts/PostContext'
 import LoginPage from './pages/LoginPage'
+import BoardListPage from './pages/BoardListPage'
 
 class App extends Component {
   render() {
     return (
-      <UserProvider>
-        <div className="App">
-          <LoginPage />
-        </div>
-      </UserProvider>
+      <PostProvider>
+        <UserProvider>
+          <div className="App">
+            <LoginPage />
+            <BoardListPage />
+          </div>
+        </UserProvider>
+      </PostProvider>
     );
   }
 }

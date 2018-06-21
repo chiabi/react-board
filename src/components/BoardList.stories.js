@@ -9,13 +9,19 @@ import BoardList from '../components/BoardList';
 const posts = [
   {  
     title: 'Hello FDS JSON Server',
-    author: 'fds'
+    user: {
+      username: 'fds'
+    }
   }, {
     title: 'react create app with storybook',
-    author: 'chichi'
+    user: {
+      username: 'fds'
+    }
   },{
     title: 'axios axios',
-    author: 'chichi'
+    user: {
+      username: 'fds'
+    }
   }
 ]
 storiesOf('BoardList', module)
