@@ -10,7 +10,7 @@ class BoardList extends Component {
     const {posts, onGoToBoardView} = this.props
     return (
       <ul className="board-list">
-        {posts.map(post => (
+        {posts.map((post) => (
           <li key={post.id} className="board-list__item" onClick={onGoToBoardView}>
             <div>{post.title}</div>
             <div>{post.user.username}</div>

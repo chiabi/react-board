@@ -7,12 +7,13 @@ class PostProvider extends Component {
   state = {
     posts: []
   }
+
   async componentDidMount() {
     this.fetchPosts()
   }
+
   fetchPosts = async () => {
     const res = await boardAPI.get('/posts?_expand=user');
-    console.log(res)
     this.setState({
       posts: res.data
     })
