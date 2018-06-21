@@ -7,6 +7,7 @@ class BoardView extends Component {
     body: '',
     author: ''
   }
+  
   render() {
     const {title, body, author} = this.props.post;
     return (

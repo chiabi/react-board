@@ -10,7 +10,7 @@ const PostListPage = () => (
     <div>
       <h1>게시글 목록</h1>
       <BoardListContainer />
-      <Link to='/new'>새 글 작성</Link>
+      <Link to='/post/write'>새 글 작성</Link>
     </div>
   </PostListProvider>
 )

@@ -26,6 +26,10 @@ class PostListProvider extends Component {
     }
   }
 
+  addNewPost = async () => {
+
+  }
+
   render() {
     const value = {
       posts: this.state.posts
