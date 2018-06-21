@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { BrowserRouter } from 'react-router-dom';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
@@ -24,5 +24,8 @@ const posts = [
   }
 ]
 storiesOf('BoardList', module)
+  .addDecorator(story => (
+    <BrowserRouter initialEntries={['/']}>{story()}</BrowserRouter>
+  ))
   .add('empty', () => <BoardList />)
-  .add('fulfilled', () => <BoardList posts={posts}/>)
+  .add('items', () => <BoardList posts={posts}/>)
