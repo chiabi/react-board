@@ -8,12 +8,9 @@ import BoardView from '../components/BoardView';
 
 const post = {
   "id": 1,
-  "userId": 1,
   "title": "Hello FDS JSON Server :)",
   "body": "...",
-  "user": {
-    "username": "fds"
-  }
+  "author": "fds"
 }
 
 storiesOf('BoardView', module)
